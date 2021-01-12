@@ -3,7 +3,9 @@ import {Grid,TextField,Paper,Button} from '@material-ui/core'
 import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import RemoveOutlinedIcon from '@material-ui/icons/RemoveOutlined';
+import {useSelector, useDispatch} from 'react-redux'
 const Multi=(props)=>{
+    const dispatch =useDispatch()
     const [Q,setQ]=useState("");
     const [options,setOptions] =useState([""]);
     const [remOpt,setOpt] =useState(3);
@@ -30,7 +32,9 @@ const Multi=(props)=>{
                         {
                                 options.map((item,index)=>{
                                     return <>
+                                        
                                         <Grid container
+                                        key={index}
                                         direction="row"
                                         style={{marginTop:"25px"}}
                                         >
@@ -44,8 +48,10 @@ const Multi=(props)=>{
                                                      if(remOpt > 0){
                                                         console.log("op")
                                                         let t= options;
-                                                        // t.push("kkjlaksdjlka")
+                                                        let  a=t;
+                                                        t.push("kkjlaksdjlka")
                                                         setOptions(t)
+                                                        setOptions(a)
                                                         console.log(options) 
                                                         setOpt(remOpt-1);
                                                      }
@@ -84,12 +90,37 @@ const Multi=(props)=>{
                                                 props.sq(-1);
                                                 let question={
                                                         type:"multi",
+                                                        question :Q,
                                                         options:options
                                                 }
-                                                console.table(question)
+
+                                                dispatch({
+                                                    type : "add_question",
+                                                    payload : question
+                                                })
+
+                                                console.log(question)
                                                 props.data.history.push("/create")
                                         }} style={{backgroundColor: "#eda180",marginRight:"30px"}}>Add Question</Button>
-                                        <Button  style={{backgroundColor: "#eda180"}}>Publish</Button>
+                                        <Button  onClick={()=>{
+                                            setOptions([""]); 
+                                            setQ("")    
+                                            setOpt(3)
+                                            console.log({props:props.sq})
+                                            props.sq(-1);
+                                            let question={
+                                                    type:"multi",
+                                                    question :Q,
+                                                    options:options
+                                            }
+
+                                            dispatch({
+                                                type : "add_question",
+                                                payload : question
+                                            })
+
+                                            props.data.history.push("/publish")
+                                        }} style={{backgroundColor: "#eda180"}}>Publish</Button>
                             </>:null
                         }
                     </Grid>
