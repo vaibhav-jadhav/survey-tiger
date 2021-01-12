@@ -61,9 +61,11 @@ import FormLabel from '@material-ui/core/FormLabel';
                                         <Paper elevation={10} style={{marginTop:"20px"}}>
                                              <FormControl component="fieldset">
                                                     <FormLabel component="legend">{Q.question}</FormLabel>
-                                                    <RadioGroup aria-label="gender" name="gender1dasd" value={value} onChange={handleChange}>
-                                                        <FormControlLabel value="female" control={<Radio />} label={Q.options[0]} />
-                                                        <FormControlLabel value="male" control={<Radio />} label={Q.options[0]} />
+                                                    <RadioGroup aria-label="g" name="sad" value={value} onChange={handleChange}>
+                                                        <FormControlLabel value="sad" control={<Radio />} label={Q.options[0]} />
+                                                        
+                                                        
+                                                        <FormControlLabel value="sd" control={<Radio />} label={Q.options[0]} />
                                                         </RadioGroup>
                                                     </FormControl>
                                             </Paper>
