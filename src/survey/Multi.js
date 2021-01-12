@@ -11,9 +11,7 @@ const Multi=()=>{
                 direction="row"
                 justify="center"
                 >
-
-
-                    
+        
                 <Grid item>
                     <Paper>
                             <Grid container
