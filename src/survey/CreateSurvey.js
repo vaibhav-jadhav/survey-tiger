@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   }));
-const CreateSurvey=()=>{
+const CreateSurvey=(props)=>{
     const classes = useStyles();
 
     const [qtype, setQtype] = React.useState(-1);
@@ -55,9 +55,9 @@ return <>
         >
                 <Grid item>
             {
-                    (qtype === 0)?<Grid><Multi/></Grid>:null
+                    (qtype === 0)?<Grid><Multi sq={setQtype} data={props}/></Grid>:null
                 }{
-                    (qtype === 1)?<Grid><Single/></Grid>:null
+                    (qtype === 1)?<Grid><Single sq={setQtype} data={props} /></Grid>:null
                 }
             </Grid>
         </Grid>

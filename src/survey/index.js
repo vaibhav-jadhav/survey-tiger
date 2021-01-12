@@ -8,10 +8,10 @@ export default function Main(props) {
         direction="row"
         justify="center"
         alignItems="center"
-        
+          
         style={{backGroundColor:"red",height:"100%"}}
         >
-          <Paper style={{padding: "10px"}}>
+          <Paper elevation={10} style={{padding: "10px"}}>
               <Grid item>
                     <img src="https://firebasestorage.googleapis.com/v0/b/doctor-doctor-5006e.appspot.com/o/survey-tiger%2Fsurvey-tiger.png?alt=media&token=410f4fdb-1b71-484c-80f1-4c824b6245a5"></img>
               </Grid>
